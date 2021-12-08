@@ -58,5 +58,5 @@ def plot_data():
 if __name__=="__main__":
     get_data()
     plot_data()
-    markdown = "![Graph](./graph.png)\n# A graph showing the the avarage amounts of CO2 in the atmosphere measured by four NOAA observatories based in Barrow, Alaska; Mauna Loa, Hawaii; American Samoa; and South Pole, Antarctica."
+    markdown = "![Graph](./graph.png)\n# A graph showing the the avarage amounts of CO2 in the atmosphere \n ##measured by four NOAA observatories based in: \n *Barrow, Alaska *Mauna Loa, Hawaii; *American Samoa;  *South Pole, Antarctica."
     open("./README.md", "w", encoding="utf-8").write(markdown)
