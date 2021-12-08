@@ -1,10 +1,4 @@
 ![Graph](./graph.png)
 # A graph showing the the avarage amounts of CO2 in the atmosphere 
-
-## measured by four NOAA observatories based in: 
- * Barrow, Alaska 
- * Mauna Loa, Hawaii
- * American Samoa  
- * South Pole, Antarctica
-
-*credit to @agentphantom for the idea and workflow examples
+ ##measured by four NOAA observatories based in: 
+ *Barrow, Alaska *Mauna Loa, Hawaii; *American Samoa;  *South Pole, Antarctica.
