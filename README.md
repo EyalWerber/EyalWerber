@@ -5,3 +5,5 @@
  * Mauna Loa, Hawaii
  * American Samoa  
  * South Pole, Antarctica
+
+*credit to @agentphantom for the idea and workflow examples
