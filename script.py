@@ -5,6 +5,7 @@ import ciso8601
 import re
 from contextlib import closing
 import urllib.request as request
+import datetime
 
 from matplotlib import pyplot as plt
 
@@ -53,6 +54,7 @@ def plot_data():
     plt.title(f'Today: {data[-1][2]} \nLast year: {data[-366][2]}',fontsize='15',color='red')
     plt.ylabel('ppm CO2 in atmosphere')
     plt.savefig('./graph.png')
+    plt.xlable(f'Last Updated: {datetime.now():%m-%d-%Y @ %H:%M:%S} (UTC)')
 
 
 if __name__=="__main__":
