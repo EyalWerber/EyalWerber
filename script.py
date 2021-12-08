@@ -5,9 +5,10 @@ import ciso8601
 import re
 from contextlib import closing
 import urllib.request as request
-import datetime
+from datetime import datetime
 
-from matplotlib import pyplot as plt
+from matplotlib import colors, pyplot as plt
+import matplotlib
 
 
 
@@ -50,11 +51,24 @@ def plot_data():
     fig, ax = plt.subplots()
     ax.plot(ts,c,tr)
     ax.set_xticks([0,len(ts)/2,len(ts)-1]) 
+    fig.patch.set_facecolor((0.1, 0.1, 0.1))
+    ax.set_facecolor('xkcd:dark gray')
+
+    ax.spines['bottom'].set_color('white')
+    ax.spines['top'].set_color('white')
+    ax.spines['left'].set_color('white')
+    ax.spines['right'].set_color('white')
+    ax.xaxis.label.set_color('white')
+    ax.yaxis.label.set_color('white')
+    ax.tick_params(axis='x', colors='white')
+    ax.tick_params(axis='y', colors='white')
+    
 
     plt.title(f'Today: {data[-1][2]} \nLast year: {data[-366][2]}',fontsize='15',color='red')
     plt.ylabel('ppm CO2 in atmosphere')
+    plt.xlabel(f'Last Updated: {datetime.now():%m-%d-%Y @ %H:%M:%S} (UTC)')
     plt.savefig('./graph.png')
-    plt.xlable(f'Last Updated: {datetime.now():%m-%d-%Y @ %H:%M:%S} (UTC)')
+    
 
 
 if __name__=="__main__":
