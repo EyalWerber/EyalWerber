@@ -66,7 +66,7 @@ def plot_data():
 
     plt.title(f'Today: {data[-1][2]} \nLast year: {data[-366][2]}',fontsize='15',color='red')
     plt.ylabel('ppm CO2 in atmosphere')
-    plt.xlabel(f'Last Updated: {datetime.now():%m-%d-%Y @ %H:%M:%S} (UTC)')
+    plt.xlabel(f'Last Updated: {datetime.now():%d/%m/%Y @ %H:%M:%S} (UTC)')
     plt.savefig('./graph.png')
     
 
