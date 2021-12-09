@@ -7,8 +7,8 @@ from contextlib import closing
 import urllib.request as request
 from datetime import datetime
 
-from matplotlib import colors, pyplot as plt
-import matplotlib
+from matplotlib import pyplot as plt
+
 
 
 
@@ -25,9 +25,11 @@ import matplotlib
 
 
 def get_numbers(data_string):
+    #Regular expression devoted to seperate numbers only, complex expression first, then simpler one.
     return re.findall(r'\d+\.\d+|\d+',data_string)
 
 def format_data(lines):
+    #remove unwanted \n's
     return [get_numbers(bstr.decode('utf-8').replace('\n','')) for bstr in lines]
 
 #Save ftp response to a txt file
@@ -41,6 +43,7 @@ def date_to_unix(date_lst):
 
 
 def get_data():
+    #get formatted data as tuple for easy pyplot deployment
     return [('/'.join(line[2::-1]),float(line[3]),float(line[4])) for line in get_ftp_data()]
 
 def plot_data():
@@ -57,8 +60,9 @@ def plot_data():
     fig.patch.set_facecolor((0.1, 0.1, 0.1))
     ax.set_facecolor('xkcd:dark gray')
     
-    [ax.spines[loc].set_color('white') for loc in ax.spines]
-
+    #Change color of graph spines
+    [ax.spines[loc].set_color('white') for loc in ax.spines] 
+ 
     ax.xaxis.label.set_color('white')
     ax.yaxis.label.set_color('white')
     ax.tick_params(axis='x', colors='white')
@@ -75,5 +79,6 @@ def plot_data():
 if __name__=="__main__":
     get_data()
     plot_data()
+    #Set README.md markdown for graph and prompt.
     markdown = "![Graph](./graph.png)\n# A graph showing the the avarage amounts of CO2 in the atmosphere \n ## measured by four NOAA observatories based in: \n * Barrow, Alaska \n* Mauna Loa, Hawaii \n* American Samoa  \n* South Pole, Antarctica \n\n shoutout to @agentphantom for the idea!"
     open("./README.md", "w", encoding="utf-8").write(markdown)
