@@ -49,7 +49,10 @@ def plot_data():
     ts,c,tr = zip(*data)
     
     fig, ax = plt.subplots()
-    ax.plot(ts,c,tr)
+    ax.plot(ts,c,label = 'cycle',color = 'orange')
+    ax.plot(ts,tr,label='trend',color = 'red')
+    ax.legend(loc='upper left')
+    
     ax.set_xticks([0,len(ts)/2,len(ts)-1]) 
     fig.patch.set_facecolor((0.1, 0.1, 0.1))
     ax.set_facecolor('xkcd:dark gray')
