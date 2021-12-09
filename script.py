@@ -50,17 +50,15 @@ def plot_data():
     
     fig, ax = plt.subplots()
     ax.plot(ts,c,label = 'cycle',color = 'orange')
-    ax.plot(ts,tr,label='trend',color = 'red')
+    ax.plot(ts,tr,label='mean. trend',color = 'red')
     ax.legend(loc='upper left')
     
     ax.set_xticks([0,len(ts)/2,len(ts)-1]) 
     fig.patch.set_facecolor((0.1, 0.1, 0.1))
     ax.set_facecolor('xkcd:dark gray')
+    
+    [ax.spines[loc].set_color('white') for loc in ax.spines]
 
-    ax.spines['bottom'].set_color('white')
-    ax.spines['top'].set_color('white')
-    ax.spines['left'].set_color('white')
-    ax.spines['right'].set_color('white')
     ax.xaxis.label.set_color('white')
     ax.yaxis.label.set_color('white')
     ax.tick_params(axis='x', colors='white')
